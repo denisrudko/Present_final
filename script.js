@@ -45,6 +45,6 @@ function adjustFrameSize() {
     const textHeight = typedText.scrollHeight;
     const textWidth = typedText.scrollWidth;
     
-    frame.style.width = (textWidth + 100) + 'px';
+    frame.style.width = (textWidth + 150) + 'px';
     frame.style.height = (textHeight + 80) + 'px';
 }
