@@ -48,3 +48,34 @@ function adjustFrameSize() {
     frame.style.width = (textWidth + 150) + 'px';
     frame.style.height = (textHeight + 80) + 'px';
 }
+const afterwordBtn = document.getElementById('afterwordBtn');
+const afterwordText = "Текст послесловия...";
+
+// Показать кнопку после завершения печати стиха
+function showAfterwordButton() {
+    afterwordBtn.classList.remove('hidden');
+}
+
+// Обработчик кнопки "Послесловие"
+afterwordBtn.addEventListener('click', function() {
+    // Анимация распыления текущего текста
+    typedText.style.animation = 'fadeOut 0.5s forwards';
+    
+    setTimeout(() => {
+        // Очистить и начать печатать новый текст
+        typedText.textContent = '';
+        typedText.style.animation = '';
+        typeText(afterwordText, 100);
+        
+        // Скрыть кнопку после нажатия
+        this.classList.add('hidden');
+    }, 500);
+});
+
+// В функции typeText добавить в конец:
+function typeText(text, speed) {
+    // ... существующий код ...
+    
+    // После завершения печати показать кнопку
+    setTimeout(showAfterwordButton, text.length * speed + 1000);
+}

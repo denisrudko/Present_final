@@ -110,3 +110,22 @@
     0%, 100% { border-color: #ff00ff; }
     50% { border-color: transparent; }
 }
+.afterword-btn {
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff00ff;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 0 20px #ff00ff;
+    transition: all 0.3s ease;
+}
+
+.afterword-btn:hover {
+    box-shadow: 0 0 30px #ff00ff;
+    transform: translateX(-50%) scale(1.05);
+}
