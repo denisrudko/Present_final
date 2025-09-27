@@ -59,57 +59,34 @@
 
 /* Рамка */
 .frame {
-    min-width: 200px;
-    min-height: 150px;
-    transition: all 0.3s ease;
-}
-
-.frame-border {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+    position: relative;
+    width: 500px;
+    height: 300px;
     border: 3px solid #ff00ff;
     box-shadow: 0 0 30px #ff00ff;
+    padding: 20px;
+    overflow-y: auto;
     animation: borderGlow 2s infinite;
 }
 
 .typed-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     color: #ff00ff;
     font-size: 18px;
     font-family: monospace;
     white-space: pre-wrap;
-    overflow: hidden;
-    border-right: 2px solid #ff00ff;
-    animation: blink 1s infinite;
     word-wrap: break-word;
     text-align: center;
-    width: 70%;
-    max-width: 90%;
     line-height: 1.4;
+    min-height: 1.2em;
+    border-right: 2px solid #ff00ff;
+    animation: blink 1s infinite;
 }
 
 .hidden {
     display: none;
 }
 
-.visible {
-    display: block;
-}
-
-/* Анимации */
-@keyframes borderGlow {
-    0%, 100% { box-shadow: 0 0 20px #ff00ff; }
-    50% { box-shadow: 0 0 40px #ff00ff, 0 0 60px #ff00ff; }
-}
-
-@keyframes blink {
-    0%, 100% { border-color: #ff00ff; }
-    50% { border-color: transparent; }
-}
+/* Кнопки */
 .afterword-btn {
     position: fixed;
     bottom: 50px;
@@ -123,9 +100,96 @@
     cursor: pointer;
     box-shadow: 0 0 20px #ff00ff;
     transition: all 0.3s ease;
+    display: none;
 }
 
-.afterword-btn:hover {
+.fireworks-btn {
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff00ff;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 0 20px #ff00ff;
+    transition: all 0.3s ease;
+    display: none;
+}
+
+.afterword-btn:hover, .fireworks-btn:hover {
     box-shadow: 0 0 30px #ff00ff;
     transform: translateX(-50%) scale(1.05);
+}
+
+/* Фейерверк */
+.heart-firework {
+    position: fixed;
+    font-size: 20px;
+    pointer-events: none;
+    animation: firework 2s ease-out forwards;
+}
+
+/* Анимации */
+@keyframes borderGlow {
+    0%, 100% { box-shadow: 0 0 20px #ff00ff; }
+    50% { box-shadow: 0 0 40px #ff00ff, 0 0 60px #ff00ff; }
+}
+
+@keyframes blink {
+    0%, 100% { border-color: #ff00ff; }
+    50% { border-color: transparent; }
+}
+
+@keyframes firework {
+    0% { 
+        transform: translate(0, 0) scale(1) rotate(0deg); 
+        opacity: 1; 
+    }
+    50% { 
+        opacity: 0.8; 
+        transform: translate(var(--x), var(--y)) scale(1.5) rotate(180deg);
+    }
+    100% { 
+        transform: translate(calc(var(--x) * 1.2), calc(var(--y) * 1.2)) scale(0); 
+        opacity: 0; 
+    }
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+}
+.feedback {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1000;
+}
+
+.feedback-text {
+    color: #ff00ff;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+.admin-btn {
+    background: #ff00ff;
+    color: black;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    box-shadow: 0 0 20px #ff00ff;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.admin-btn:hover {
+    box-shadow: 0 0 30px #ff00ff;
+    transform: scale(1.1);
 }
