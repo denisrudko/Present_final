@@ -20,7 +20,7 @@ heartButton.addEventListener('click', function() {
         frame.classList.add('visible');
         
         // Запускаем печать текста
-        typeText(finalText, 100);
+        typeText(finalText, 80);
     }, 800);
 });
 
