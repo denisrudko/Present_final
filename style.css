@@ -193,3 +193,27 @@
     box-shadow: 0 0 30px #ff00ff;
     transform: scale(1.1);
 }
+/* Для мобильных устройств */
+@media (max-width: 768px) {
+    .frame {
+        width: 90vw !important; /* 90% ширины экрана */
+        height: 50vh !important; /* 50% высоты экрана */
+        max-width: 90vw;
+        padding: 15px;
+    }
+    
+    .typed-text {
+        font-size: 16px;
+        word-break: break-word;
+    }
+    
+    .feedback-text {
+        font-size: 20px;
+        padding: 0 20px;
+    }
+    
+    .admin-btn {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+}
